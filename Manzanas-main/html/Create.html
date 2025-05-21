@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manzanas del cuidado - Registro</title>
+    <link rel="stylesheet" href="../css/Create.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <h2 style="color: #d23b7c; text-decoration: underline; font-family: 'Dancing Script', cursive;">Manzanas</h2>
+            <span style="margin-left: 5px;">del cuidado</span>
+        </div>
+        <div class="nav-buttons">
+             <a href="../html/index.html"><button class="nav-button">Inicio</button></a>
+            <button class="nav-button">Manzanas</button>
+        </div>
+        <div class="profile-icon">
+            <img src="../IMG/PersonaLogin.JPG" alt="">
+        </div>
+    </div>
+
+    <div class="registro-container">
+        <div class="registro-header">
+            REGISTRATE
+        </div>
+        
+        <div class="registro-box">
+            <div class="sidebar-line"></div>
+            
+            <form id="registro-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-label">Documento</div>
+                        <input type="text" class="input-field" id="documento" required>
+                        <div class="error-message" id="error-documento">Este campo es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-label">ID</div>
+                        <input type="text" class="input-field" id="id" required>
+                        <div class="error-message" id="error-id">Este campo es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-label">TELÉFONO</div>
+                        <input type="text" class="input-field" id="telefono" required>
+                        <div class="error-message" id="error-telefono">Este campo es obligatorio</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-label">Nombre</div>
+                        <input type="text" class="input-field" id="nombre" required>
+                        <div class="error-message" id="error-nombre">Este campo es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-label">APELLIDO</div>
+                        <input type="text" class="input-field" id="apellido" required>
+                        <div class="error-message" id="error-apellido">Este campo es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-label">CORREO</div>
+                        <input type="email" class="input-field" id="correo" required>
+                        <div class="error-message" id="error-correo">Este campo es obligatorio</div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <div class="input-label">CIUDAD</div>
+                        <input type="text" class="input-field" id="ciudad" required>
+                        <div class="error-message" id="error-ciudad">Este campo es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-label">Localidad</div>
+                        <input type="text" class="input-field" id="localidad" required>
+                        <div class="error-message" id="error-localidad">Este campo es obligatorio</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-label">OCUPACIÓN</div>
+                        <input type="text" class="input-field" id="ocupacion" required>
+                        <div class="error-message" id="error-ocupacion">Este campo es obligatorio</div>
+                    </div>
+                </div>
+                
+                <div class="interest-label">Programas de interés</div>
+                
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" class="checkbox-input" name="programas">
+                    </label>
+                </div>
+            </form>
+        </div>
+        
+        <button class="registro-button" id="registrar-btn" disabled>REGISTRAR</button>
+    </div>
+
+    <script>
+        // Validación
+        const form = document.getElementById('registro-form');
+        const inputs = form.querySelectorAll('input[required]');
+        const registrarBtn = document.getElementById('registrar-btn');
+        
+        // Función para validar que todos los campos requeridos estén llenos
+        function validarFormulario() {
+            let formValido = true;
+            
+            inputs.forEach(input => {
+                const errorElement = document.getElementById(`error-${input.id}`);
+                
+                if (input.value.trim() === '') {
+                    formValido = false;
+                    if (errorElement) {
+                        errorElement.style.display = 'block';
+                    }
+                } else {
+                    if (errorElement) {
+                        errorElement.style.display = 'none';
+                    }
+                }
+            });
+            
+            registrarBtn.disabled = !formValido;
+        }
+        
+        // Evento de cambio para cada campo
+        inputs.forEach(input => {
+            input.addEventListener('input', validarFormulario);
+        });
+        
+        // Evento de click para el botón de registro
+        registrarBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (form.checkValidity()) {
+                alert('Registro exitoso');
+               
+            } else {
+                validarFormulario();
+            }
+        });
+    </script>
+</body>
+</html>

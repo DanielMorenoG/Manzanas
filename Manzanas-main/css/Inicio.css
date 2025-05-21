@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Handlee", cursive;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* Inicio Header */
+
+header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px 30px;
+}
+
+.titulo{
+    font-size: 26px;
+    margin-right: 250px;
+}
+
+nav button{
+    margin: 0 20px;
+    background-color: #d22c7d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    transition: filter 0.3s, background-color 0.3s;
+}
+
+.lista{
+    display: flex;
+    justify-content: right;
+}
+
+button:hover{
+    filter: brightness(85%);
+}
+
+.icono1{
+    width: 150px;
+    transition: filter 0.3s, background-color 0.3s;
+}
+
+.icono1:hover{
+    filter: brightness(85%);
+}
+
+/* Fin Header */
+
+/* Inicio Contenido */
+
+.titulito{
+    margin: -30px;
+}
+
+.negrilla{
+    color: #d22c7d;
+    font-weight: bold;
+    border-bottom: 3px solid #d22c7d;
+    padding-right: 5px;
+}
+
+.negrilla2{
+    color: #ff5841;
+    font-weight: bold;
+    display: inline-block;
+    width: 190px;
+    height: 70px;
+    background-image: url('./img/cuadrito1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -35px;
+    background-position-y: -25px;
+    background-origin: content-box;
+    background-size: 270px;
+    line-height: 75px;
+    font-size: 40px;
+    transition: transform 0.3s ease;
+}
+
+.negrilla2:hover{
+    transform: scale(1.1);
+}
+
+.imagen1{
+    display: flex;
+    position: absolute;
+    width: 250px;
+}
+
+
+h2{
+    font-size: 35px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.botoncito{
+    padding: 10px 20px;
+    align-items: center;
+    margin: 20px;
+    background-color: #ff5841;
+    font-size: 25px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    transition: filter 0.3s, background-color 0.3s;
+}
+
+.conteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fin Contenido */
+
+/* Inicio Carrusel */
+
+.carrusel{
+    width: 800px;
+    height: 400px;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+
+.carrusel ul{
+    display: flex;
+    padding: 0;
+    width: 600%;
+    animation: slide 20s infinite alternate ease-in-out;
+}
+
+.carrusel li{
+    width: 100%;
+    list-style: none;
+}
+
+.carrusel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@keyframes slide{
+    0% { margin-left: 0; }
+    20% { margin-left: 0; }
+
+    25% { margin-left: -100%; }
+    45% { margin-left: -100%; }
+
+    50% { margin-left: -200%; }
+    70% { margin-left: -200%; }
+
+    75% { margin-left: -300%; }
+    100% { margin-left: -300%; }
+}
+
+/* Fin carrusel */
+
+/* Inicio Tarjetas */
+
+.conteiner2{
+    margin-top: 120px;
+}
+
+.titulo2{
+    font-size: 30px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+#tarjetas{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+}
+
+.tarjeta{
+    position: relative;
+    background-color: #ffd5d1;
+    border-radius: 20px;
+    width: 350px;
+    height: 450px;
+    padding: 60px 20px 140px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url('./img/cuadrito2.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.iconoo{
+    width: 90px;
+    z-index: 1;
+}
+
+.boton{
+    width: 200px;
+    background-color: #ff5841;
+    color: white;
+    font-size: 25px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.boton:hover{
+    transform: scale(1.1);
+}
+
+/* Fin Tarjetas */
+
+/* Responsividad */
+
