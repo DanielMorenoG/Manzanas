@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Contraseña</title>
+   <link rel="stylesheet" href="../css/CambioCon.css">
+</head>
+<body>
+    <div class="recovery-container">
+        <div class="border-decoration"></div>
+        <div class="header">RECUPERACION</div>
+        
+        <div class="icon-container">
+            <div class="lock-container">
+                <div class="lock">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        
+                        <rect x="20" y="40" width="60" height="50" fill="#ffbb33" rx="5" ry="5"/>
+                        
+                        <path d="M70,40 L70,30 Q70,10 50,10 Q30,10 30,30 L30,40" fill="none" stroke="#333366" stroke-width="10" stroke-linecap="round"/>
+                        
+                        <circle cx="50" cy="65" r="15" fill="#44cc99"/>
+                        <path d="M40,65 L48,73 L60,57" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="stars">
+                    <svg width="60" height="20" viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10,10 L7,16 L0,16 L6,20 L4,26 L10,22 L16,26 L14,20 L20,16 L13,16 Z" fill="white" transform="scale(0.5) translate(0, 0)"/>
+                        <path d="M10,10 L7,16 L0,16 L6,20 L4,26 L10,22 L16,26 L14,20 L20,16 L13,16 Z" fill="white" transform="scale(0.5) translate(20, 0)"/>
+                        <path d="M10,10 L7,16 L0,16 L6,20 L4,26 L10,22 L16,26 L14,20 L20,16 L13,16 Z" fill="white" transform="scale(0.5) translate(40, 0)"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <form id="passwordChangeForm" novalidate>
+            <div class="label">Contraseña</div>
+            <input type="password" id="password" placeholder="" required>
+            <div id="passwordError" class="error-message">Por favor, ingrese una contraseña válida.</div>
+            
+            <div class="label">Repítala</div>
+            <input type="password" id="confirmPassword" placeholder="" required>
+            <div id="confirmPasswordError" class="error-message">Las contraseñas no coinciden.</div>
+        </form>
+        
+        <button type="button" id="changeButton" class="change-button">CAMBIAR</button>
+        
+        <p class="instructions">Evite poner caracteres especiales en la contraseña.</p>
+    </div>
+
+    <script>
+        document.getElementById('changeButton').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const passwordError = document.getElementById('passwordError');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            
+            let isValid = true;
+            
+            // Validar que la contraseña no esté vacía
+            if (!passwordInput.value.trim()) {
+                passwordError.style.display = 'block';
+                passwordInput.style.borderColor = '#e74c3c';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+                passwordInput.style.borderColor = '#ccc';
+            }
+            
+            // Validar que las contraseñas coincidan
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordError.style.display = 'block';
+                confirmPasswordInput.style.borderColor = '#e74c3c';
+                isValid = false;
+            } else {
+                confirmPasswordError.style.display = 'none';
+                confirmPasswordInput.style.borderColor = '#ccc';
+            }
+            
+            if (isValid) {
+                // Aquí se podría enviar el formulario o realizar otras acciones
+                alert('Contraseña cambiada correctamente');
+            }
+        });
+    </script>
+</body>
+</html>

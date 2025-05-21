@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperación de Contraseña</title>
+  <link rel="stylesheet" href="../css/CodRecup.css">
+</head>
+<body>
+   
+
+    <div class="recovery-container">
+        <div class="border-decoration"></div>
+        <div class="header">RECUPERACION</div>
+        
+        <div class="icon-container">
+            <div class="key-hand">
+                <svg class="key" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                   
+                    <g transform="rotate(-45 50 50)">
+                        <rect x="40" y="25" width="12" height="50" fill="#0066aa" rx="2" ry="2"/>
+                        <circle cx="46" cy="25" r="15" fill="#0066aa"/>
+                        <circle cx="46" cy="25" r="8" fill="#004488"/>
+                       
+                        <circle cx="25" cy="20" r="3" fill="#ff5d45"/>
+                        <circle cx="30" cy="15" r="3" fill="#ffcc00"/>
+                        <circle cx="35" cy="10" r="3" fill="#66cc66"/>
+                    </g>
+                </svg>
+                <svg class="hand" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">                    <path d="M20,10 Q30,0 40,5 Q50,10 60,5 Q70,0 80,10 Q85,20 80,30 Q75,35 50,35 Q25,35 20,30 Q15,20 20,10" fill="#F5D0A9"/>
+                    <rect x="40" y="15" width="20" height="15" fill="#0088cc" rx="2" ry="2"/>
+                    <rect x="45" y="18" width="10" height="5" fill="#006699"/>
+                </svg>
+            </div>
+        </div>
+        
+        <form id="recoveryForm" novalidate>
+            <div class="label">Código</div>
+            <input type="text" id="code" placeholder="" required>
+            <div id="codeError" class="error-message">Por favor, ingrese el código de recuperación.</div>
+        </form>
+        
+        <p class="instructions">Revise su correo e ingrese el código que le enviamos.</p>
+        <a href="../html/CambioCon.html">Supongasmos xdxd</a>
+        
+        <button type="button" id="validateButton" class="validate-button">VALIDAR</button>
+    </div>
+
+    <script>
+        document.getElementById('validateButton').addEventListener('click', function() {
+            const codeInput = document.getElementById('code');
+            const codeError = document.getElementById('codeError');
+            
+            if (!codeInput.value.trim()) {
+                codeError.style.display = 'block';
+                codeInput.style.borderColor = '#e74c3c';
+                return false;
+            } else {
+                codeError.style.display = 'none';
+                codeInput.style.borderColor = '#ccc';
+                
+                //validar el código
+                alert('Código validado correctamente');
+            }
+        });
+    </script>
+</body>
+</html>
